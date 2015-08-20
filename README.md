@@ -6,9 +6,9 @@ Vault uses TCP/8200 by default, so we'll keep that. The demo configuration is li
 
 Configuration is stored under `config/`.
 
-The automated latest build is always available at [sjourdan/vault](https://registry.hub.docker.com/u/sjourdan/vault/):
+The automated latest build is always available at [containersol/vault](https://registry.hub.docker.com/u/containersol/vault/):
 
-    $ docker pull sjourdan/vault
+    $ docker pull containersol/vault
 
 ## Vault Server
 
@@ -20,7 +20,7 @@ Start by default in **dev mode**:
       --cap-add IPC_LOCK \
       -p 8200:8200 \
       --hostname vault \
-      --name vault sjourdan/vault
+      --name vault containersol/vault
 
 Start with a **demo Consul backend** using [demo.consul.io](https://demo.consul.io):
 
@@ -30,7 +30,7 @@ Start with a **demo Consul backend** using [demo.consul.io](https://demo.consul.
       --hostname vault \
       --name vault \
       --volume $PWD/config:/config \
-      sjourdan/vault -config=/config/demo.hcl
+      containersol/vault -config=/config/demo.hcl
 
 If you have a running Consul container named `consul`, you can just use it:
 
@@ -41,7 +41,7 @@ If you have a running Consul container named `consul`, you can just use it:
       --name vault \
       --link consul:consul \
       --volume $PWD/config:/config \
-      sjourdan/vault -config=/config/consul.hcl
+      containersol/vault -config=/config/consul.hcl
 
 To initialize Vault, on your workstation with `vault` installed:
 
